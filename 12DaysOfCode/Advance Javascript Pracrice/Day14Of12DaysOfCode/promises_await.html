@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promices and Await</title>
+</head>
+<body>
+    <script>
+        //promises
+        //promises are used to handle asynchronous operation in s, they are easy to manage when dealing with
+        //multiple asychronous operation where callbacks are created callback hel leading to unmanageable code.
+        //A promise is an object which keep track about whether a certain event has happened already or not
+
+        //it has 3 stages
+        //1. pending
+        //2. resolve
+        //3. reject
+
+        //we can create promise in 2 ways 
+        //1. constructor
+        //2. object
+
+        //need to call an executer function which holds 2 parameter 
+        //one is resole which will executed by then i.e. no error only the values
+        //another is reject which will executed by catch i.e. if there is error then it will throw it
+        var pro_obj = new Promise((resolve,reject)=>{
+            setTimeout(() => {
+                var arr = [1,2,3,4,5,6];
+                //if there is no error then this will execute 
+                resolve(arr);
+                //if there is error then it will show error
+                // reject('there is errror');
+            }, 2000);
+        });
+
+        var fun1 = (index_roll)=> {
+            return new Promise((resolve,reject)=>{
+                setTimeout((index_roll) => {
+                    var obj = {
+                        name: 'Souvik',
+                        age: 19
+                    }
+                    resolve(`Hello I am ${obj.name} and my age: ${obj.age}, roll: ${index_roll}`);
+                }, 4000,index_roll);
+            })
+        }
+        //we need to execute them through
+        //then if yes 
+        //catch if error
+        pro_obj.then((value)=>{
+            console.log(value);
+            fun1(value[0]).then((value2)=>{
+                console.log(value2);
+            })
+        }).catch((error)=>{
+            console.log(error);
+        })
+
+        //Async await
+        //to avoid promises we use async await
+        //we we uses promises then it can be called by then or catch
+        //but by async await we get more clearity in the execution of the promises
+        //async before a function means one sample thing: a function always return promises
+        //so the async function is added to tell them to return a promices
+        //rather then directly reurning the value
+        //we use await when calling any function that return promises, including web APIs
+        //the keyword await makes javascript wait until that promices settle and return values
+
+        //async makes function ansynchronous which helps to executes it without a condition
+        async function getdata() {
+            //await set the promise to wait and return the value 
+            const data_ = await pro_obj;
+            console.log(data_);
+
+            const roll = await fun1((data_[0]));
+            console.log(roll);
+
+            return roll;
+        }
+        var getvalue = getdata().then((myname)=>{
+            console.log(myname);
+        });
+        //promises takes time to execute so the stage is set to be pending
+        //and it will return pending
+        // console.log(getvalue);
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Function</title>
+</head>
+<body>
+    <script>
+        //callback fucntion
+        //when a fucntion is called inside andother fucntion as an argument, which is then invoked inside the 
+        //outer fucntion to complete some kind of routine or action
+
+        //when a main fucntion is created the we create another fucntion,
+        //in second fucntion we give parameters and that parameter is called inside the fucntion
+        //to call both the fucntion
+        //call second_fucntion and inside it call the first one
+        //i.e -> func2(func);
+
+        function func(){
+            document.write("<h1>Main Fucntion</h1>");
+        }
+        function fucn2(CallBack){
+            CallBack();
+        }
+        fucn2(func);
+
+        //arguments inside the callback fucntion
+        function new_fun1(name){
+            document.write("<h1>Name: "+name);
+        }
+        function new_fun2(CallBack){
+            var name = 'Souvik Acharya</h1>';
+            CallBack(name);
+        }
+        new_fun2(new_fun1)
+
+        //using arrow function
+        function fun__2(callbacks){
+            var e =10;
+            callbacks(e);
+        }
+        
+        fun__2((e)=>{
+            document.write("<h1>"+e);
+        })
+
+        //Synchronous callback fucntion                     //Asychronous callback fucntion
+        //It waits for each operation                       //It never waits for each operation
+        //to complete, after that it                        //to complete, rather it executes
+        //execute the next operation.                       //all operation in the first GO only
+
+        //Asychronous callback fucntion
+
+        setInterval(() => {
+            console.log("I am out");
+        }, 5000);
+        console.log('hello');
+    </script>
+</body>
+</html>

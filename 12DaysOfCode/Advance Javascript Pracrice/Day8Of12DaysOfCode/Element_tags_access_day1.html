@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element_tags_access</title>
+</head>
+<body>
+    <!-- Access Elements Tags By Javascript by following ways:-
+    1. getElementById();
+        It will take id name from html tags and manipulate it in which the tag it's there. 
+    2. getElementByClassName();
+        It will take class name form the html and manipulate the following tag which is attached to it.
+    3. getElementByTagName();
+        It access elemnts having Tag Names
+    4. querrySelector();
+        It access first match of the passed selector string
+    5. querrySelectorAll();
+        It returns a node list of DOM elements that match the query, it manipulate all the selectors 
+    
+    *We known all the tags comes under the document so to see the properties and objects of dcoument,
+    we can write :- console.dir(dcoument) in console-->
+
+    <h2 id="id">Hello bhi</h2>
+    <ul id="ul">
+        <li>
+            <a href="#">Hello</a>
+            <a href="#">Suvik</a>
+            <a href="#">Acharya</a>
+        </li>
+    </ul>
+    
+    
+    <script>
+        // getElementById
+        var Id = document.getElementById("id");
+        document.write("getElementById: "+Id+"<br>");
+        console.log(Id);
+
+        // getElementByTagName
+        //to access all the tags in html we can use *
+        //to access a pirticular element we can access only by specific tag name
+        //return live node list meaning that it updates itself with DOM tree automatically, so modifying of
+        //DOM tree will be reflected return collection. It start Index count form 0
+        //we can use lenght property to knwon all the nodelist objects to dertimene the no. of elements
+        var tag_all = document.getElementsByTagName("*");
+        var tag_one = document.getElementsByTagName("h2");
+        //to access only inside body
+        var tag_body = document.body.getElementsByTagName("*")
+        document.write("getElementsByTagName: "+tag_all,tag_one,tag_body);
+        console.log(tag_all,tag_one,tag_body);
+        //more specific
+       var spec_id = document.getElementById("ul");
+       var spec_li = spec_id.getElementsByTagName("a");
+       document.write("<br>"+spec_li);
+       console.log(spec_li);
+       //lenght
+       var a = spec_li.length;console.log(a);
+       //show indiviuals items specifically
+       for(let i=0;i<spec_li.length;i++){
+           console.log(spec_id.getElementsByTagName("a")[i]);
+       }
+
+        //getElementByClassName it is similar to getElementsByTagName
+        //
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DynamicStyleManipulation</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .class12{
+        background-color: red;
+        font-size: 4em;
+        color: white;
+    }
+    .haju{
+        font-size: 3rem;
+    }
+</style>
+<body>
+    <h1 id="class1" class="haju">Hello ray</h1>
+    <script>
+        //DynamicStyleManipulation
+        //we can create a new class throught javascript and maniputes it in CSS throught it properties
+        //we can manipulate class by creating className='haju'
+        //assingn the CSS property to haju
+
+        var cls = document.getElementById("class1").className='classic';
+        console.log(cls);
+        // or
+        // cls.className="class12"
+    </script>
+</body>
+</html>

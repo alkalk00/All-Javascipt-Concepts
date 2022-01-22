@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+<body>
+    <h1 id="id"></h1>
+    <script>
+        //Fetch API
+        //The Fetch API  provides a fetch() methord definded on the windows object, which can
+        //use to perform request.
+
+        //this methord returns a promise that can use to get or retieve data
+        //the respond of the request
+
+        fetch('https://api.covid19api.com/summary').then((data_list)=>{
+            //console.log(data_list);
+            //.json to convert into javascript object
+            return data_list.json();
+        }).then((catch_data)=>{
+            var country = catch_data.Countries[76].Country;
+            var newCases = catch_data.Countries[76].NewConfirmed;
+            console.log(country);
+            document.getElementById("id").innerHTML = `Country: ${country} <br>New Cases: ${newCases}`;
+            console.log(newCases);
+
+        }).catch((error)=>{
+            console.log(`The error: ${error}`);
+        })
+
+
+    </script>
+</body>
+</html>

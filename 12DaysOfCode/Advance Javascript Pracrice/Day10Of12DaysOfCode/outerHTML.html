@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>outerHTML</title>
+</head>
+<body>
+    <div class="he">
+    <div id="mydiv">
+        <h1>Heading 1</h1>
+        <h2 id="myh2">Heading 2</h2>
+        <h3>Heading 3</h3>
+    </div>
+    <div id="mytxt">
+        <h1> 1</h1>
+        <h2 id="myh"> 2</h2>
+        <h3> 3</h3>
+    </div>
+    </div>
+
+    <script>
+        //outerHTML
+        //it mainpulate both the inner and outer HTML content
+        //we can do same that we have done in innerHTML
+        //the function are same
+
+        var main_id = document.getElementById("mydiv");
+        //the main content get replaced but document stores the value
+        main_id.outerHTML = "<ul><li>ello</li></ul>";
+        console.log(main_id);
+
+        //innerText
+        //it return only text not any markup format
+        var main_txt = document.getElementById("mytxt");
+        main_txt.innerText;
+        var txt = document.getElementById("myh");
+        //replaced
+        txt.innerText='yo'
+        console.log(main_txt);
+    </script>
+</body>
+</html>

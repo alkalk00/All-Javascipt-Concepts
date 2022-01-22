@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Prototype</title>
+</head>
+<body>
+    <h1>Prototype</h1> 
+    <h2>In javascrpt every object is associated with another object</h2>
+    <h2>If we create an object i.e. var obj = {} in this obj is associated with object.protorype of object obj</h2>
+    <h2>All the properties of object.prototype is inherited to obj</h2>
+    <h2>Note: Prototype Object of Object.prototype is null</h2>
+    <br>
+    <h2>var b1 = new Object() this creates a constructor and we call it as "Prototype property of the Constructor function which in this case Object.prototype is prototype Object of Object b1</h2>
+    <h2>i.e. b1 will inherit all the properties of object.prototype</h2>
+    <br>
+    <h2>var b2 = new Array() this creates also a constructor and we call it same just prototype.object is changed to array.prototype and it prototype of b2</h2>
+    <h2>Note: Prototype Object of Array.prototype is Object.prototype and Prototype object of object.prototype is null</h2>
+    <h2>This means b2 is object and it associated by Array.prototype and Array.Prototype is associated by Object.Prototype and Object.prototype is associated by Null. Null is in top of all</h2>
+    <br>
+    <h1>Hierarchy of Object</h1>
+    <br>
+    <img src="./Prototype_hierarchy.jpeg" alt="" width="600px"><br>
+    <script>
+        // it will return object.prototype
+        console.log(Object.prototype);
+
+        var a = {};
+        //we are getting the same code mearns b is associtated with object.prototype
+        console.log(Object.getPrototypeOf(a));
+        //to see object.prototype is associated to where
+        //object.prototype is associtated to null 
+        console.log(Object.getPrototypeOf(Object.prototype))
+        //this means b1 is associated with object.prototype and it is function of constructor and object.prototype
+        //is associated to null
+
+    </script>
+</body>
+</html>

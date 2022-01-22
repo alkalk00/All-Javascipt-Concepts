@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exception Handling</title>
+</head>
+<body>
+    <script>
+        //Exception Handling
+        //in javascript if there is any error in code while execution we can handle it by exception handleing
+        //it contains 4 keywords:-
+        //try
+        //catch
+        //finally
+        //throw
+
+        //try - in it the error which is caused is written
+        //the below code of catch will be skipped
+        //catch - tells what the error is 
+        //finally - it exceute the code by any how i.e. it will execute the code if there is error or  not error
+
+        try {
+            fucn();
+            //it will skip the below line of code
+            document.write("skiped code<br>");
+        } catch (e) {
+            document.write("There no fucntion like - "+e.name);
+        }
+        finally{
+            document.write("<br>This code will execute with or without the error");
+        }
+    </script>
+</body>
+</html>

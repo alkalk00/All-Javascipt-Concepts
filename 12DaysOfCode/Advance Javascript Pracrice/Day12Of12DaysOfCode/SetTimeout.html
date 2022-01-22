@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SetTimeout</title>
+</head>
+<body>
+    <h1 id="id">Lorem ipsum dolor sit, amet consectetur <br>
+        adipisicing elit. Sint, molestias qui? Ipsum    <br>
+        doloremque placeat beatae, vel iure hic cum <br>
+        veritatis a debitis ullam tempore facere    <br>
+        reprehenderit explicabo magnam dolorem deserunt!</h1>
+
+        <button type="button" id="btn">STOP</button>
+        <script>
+            //SetTImeout
+            //this methord sets a timer which executes a fucntion or specific piece of code once after the timer
+            //expires. The fucnction is only exectued once.
+
+            // function color_change(){
+            //     document.getElementById("id").style.color="red";
+            // }
+
+            // setInterval(color_change, 2000);
+
+            //or
+
+            var time_id = setTimeout(() => {
+                document.getElementById("id").style.color="red";
+                document.getElementById("id").style.fontSize= "4rem";
+            }, 2000);
+
+            //to stop the setTimeout
+            document.getElementById("btn").addEventListener("click",()=>{
+                clearTimeout(time_id);
+            })
+            
+
+        </script>
+</body>
+</html>

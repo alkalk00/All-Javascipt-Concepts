@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normalize methord</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-size: 2rem;
+            color: rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <p id="para"></p>
+    <script>
+        //normalize methord removes the empty nodes and merge the nodes of same level into one node
+        var para = document.getElementById("para");
+        var n_para1 = document.createTextNode("I");
+        var n_para2 = document.createTextNode(" am");
+        var n_para3 = document.createTextNode(" souvik");
+
+        para.appendChild(n_para1);
+        console.log(para);
+        para.appendChild(n_para2);
+        console.log(para);
+        para.appendChild(n_para3);
+        console.log(para);
+
+        //length of the array changes
+        console.log(para.childNodes);
+        para.normalize();
+        //now the length change into 1 and got merge
+        console.log(para.childNodes);
+
+    </script>
+</body>
+</html>

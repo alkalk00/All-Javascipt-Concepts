@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element_tags_access</title>
+</head>
+<body>
+    <h2 class="class_name">Souvik</h2>
+    <div class="class_n">
+        <ul>
+            <li>
+                <a href="#" class="classes myclass">Hello</a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        //getElementByClassName
+        //it return a list of node similiar like getElementsByTagName();
+        var class_ = document.getElementsByClassName("classes myclass");
+        document.write(class_);
+        console.log(class_);
+    </script>
+</body>
+</html>

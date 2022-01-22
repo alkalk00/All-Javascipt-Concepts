@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>properties of website</title>
+</head>
+<body>
+    <script>
+        //there are mainly properties we can get all the properties of webpage by
+        //console.dir(dcoumnet)
+        console.dir(document);  
+
+        var url = document.URL;
+        console.log(url);
+
+        var domain = document.domain;
+        console.log(domain);
+
+        var doctype = document.doctype;
+        console.log(doctype);
+
+        var title = document.title;
+        console.log(title);
+        document.title = 'Properties';
+
+        var img = document.images;
+        console.log(img);
+    </script>
+</body>
+</html>

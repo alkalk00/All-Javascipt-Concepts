@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Node </title>
+</head>
+<body>
+    <div id="mytxt">
+        <h1> 1</h1>
+        <h2 id="myh"> 2</h2>
+        <h3> 3</h3>
+    </div>
+    <div id="clo_node">
+
+    </div>
+
+    <script>
+        //cloneNode
+        //by this methord we can clone a set of element to another elements
+        //if we return true then both element and the childeren will be returned
+        //if we return false then it will only return element not childern
+        //at last we need to append the variable to another div 
+
+        var main_id = document.getElementById("mytxt");
+        var sen_id = document.getElementById("clo_node");
+        var cloning = main_id.cloneNode(true);
+        console.log(cloning);
+        sen_id.appendChild(cloning)
+    </script>
+</body>
+</html>

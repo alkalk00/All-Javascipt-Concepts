@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create nodes</title>
+</head>
+<body>
+    <div id="myid">
+        <h1 >Hello</h1>
+    </div>
+    <section id="mysec">
+
+    </section>
+
+    <script>
+        //we can create 4 element nodes:-
+        //1. createElement Node
+        //2. createTextNode 
+        //3. createComment
+        //4. createDcoumentFragment
+
+        //createElement helps to create new tag element
+        var new_el = document.createElement("li");
+        new_el.style.fontSize = '2rem';
+        console.log(new_el);
+        document.write(new_el.innerHTML='hello2<br>');
+
+        var n_e = document.createElement("h1");
+        document.write(n_e.innerHTML='helo world<br>');
+
+        //createtextnode
+        var new_text = document.createTextNode("text");
+        console.log(new_text);
+
+        //createComment
+        var comm = document.createComment("hello world");
+        console.log(comm);
+        document.write(comm.nodeValue);
+
+        //createFragment
+        //its interface represents a minimal document object that has no parent
+        //common use of it is to create and use it through node interface methord as appendChild() or insertBefore()
+        //it is not the part of active document tree structure
+        var crr_frag = document.createDocumentFragment();
+        console.log(crr_frag);
+
+        //appendChild 
+        //it works more like concat just bind up the new elements and the node to the desire eleemnt
+        var myid = document.getElementById("myid");
+        var mysec = document.getElementById("mysec");
+        mysec.appendChild(myid);
+        console.log(mysec);
+
+        //mixup
+         var new_element = document.createElement("h1");
+         var new_text = document.createTextNode("I am the new text");
+
+        new_element.appendChild(new_text);
+        console.log(new_element);
+        myid.appendChild(new_element);
+        console.log(myid);
+
+        var new_ul = document.createElement("ul");
+        var new_li = document.createElement("li");
+        var new_li1 = document.createElement("li");
+        new_ul.appendChild(new_li)
+        new_ul.appendChild(new_li1);
+        console.log(new_ul);
+        var new_txt = document.createTextNode("One");
+        var new_txt1 = document.createTextNode("two");
+        new_li.appendChild(new_txt);
+        new_li1.appendChild(new_txt1);
+        myid.appendChild(new_ul);``         
+
+    </script>
+    
+</body>
+</html>

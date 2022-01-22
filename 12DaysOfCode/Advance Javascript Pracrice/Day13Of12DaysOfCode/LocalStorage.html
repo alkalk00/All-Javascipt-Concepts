@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Stroage</title>
+</head>
+<body>
+    <script>
+        //LocalStorage
+        //it stores the data permemtly and loose the data after 1-2 years
+        //it's a windows read only property
+
+        //setitem - to set data
+        window.localStorage.setItem("name","Souvik");
+        window.localStorage.setItem("roll","22");
+
+        //getitem - to view the datas
+        console.log(window.localStorage.getItem('roll'));
+
+        //key - to view the keys of the collected items
+        console.log(window.localStorage.key(2));
+
+        //remove - to remove the items in list
+        window.localStorage.removeItem("roll");
+
+        //clear - to remove all the items form the list
+        window.localStorage.clear()
+    </script>
+</body>
+</html>

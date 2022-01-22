@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classList</title>
+    <style>
+        .cl{
+            font-size: 2rem;
+            color: rebeccapurple;
+        }
+        .new2Clas{
+            font-size: 4rem;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <p id="id" class="cl">Hello world</p>
+    <script>
+        //classList
+        //mainly maniputes classes
+        //it read-only property
+
+        var ele = document.getElementById("id");
+        var eleClass = ele.classList;
+
+        //length
+        console.log(eleClass.length);
+
+        //index
+        console.log(eleClass[0]);
+
+        //add
+        eleClass.add("newClass");   //single class can be added
+        eleClass.add("2ndClass","3rdClass") //multipule class can be added
+
+        //remove
+        eleClass.remove("newClass")
+
+        //replace
+        eleClass.replace("2ndClass","new2Clas");
+
+        //contains -> it returns in boolean ie. true or false
+        var con = eleClass.contains("new2Clas")
+        console.log(con);
+
+        //toogle -> if there is class prenent it will remove and vise verse
+        //mainly used in annimation
+        var tog = eleClass.toggle("new2Clas");
+
+    </script>
+</body>
+</html>

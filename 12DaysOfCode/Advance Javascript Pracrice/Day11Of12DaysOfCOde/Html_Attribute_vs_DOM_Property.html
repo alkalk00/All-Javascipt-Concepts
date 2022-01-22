@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Attributes vs DOM properties</title>
+</head>
+<body>
+    <h2 class="myclass" title="mytitle" id="myid">Hello world</h2>
+    <h1 title="att" style="color: red;">Attributes</h1>
+
+    <script>
+        var ele = document.getElementById("myid");
+        //HTML Attributes are like 
+        // class, id ,title ,etc these are the personal property of H2 tag element
+        //but DOM Property are those which comes inherited form NODE then ELEMENT then HTMLELEMENT the H2 element
+        //so all the properties form up comes down to H2 tag element
+        //it has few own property but has inherited property of NODE, ELEMENT, HTMLELEMENT
+
+        //tells what type of object is it
+        console.log(Object.prototype.toString.call(ele));
+
+        //we can also see the attributes of this node element
+        console.log(ele.id);
+        //we can set the attributes also
+        ele.id = "changedID";
+        console.log(ele.id);    //changed
+
+        //Attributes
+        //it retuns the list of nodes of all attributes it has in the element
+        //we can also view it by it's index number or key
+        console.log(ele.attributes[2]);
+        console.log(ele.attributes);
+        
+        //setAttributes and getAttributes
+        //setAttribute - we can create new attribute through this methord
+        //getAttribute - view the attributes what it has
+        //this methord creates attributes of the element. if attributes existed it updates the attributes
+        //we should not use inline style then it will overwride the CSS properties
+        //syntax :- Element.setAttributes(name,value);
+        //syntax :- Element.setAttributes("style","css properties:value");
+
+        var ele2 = document.querySelector("h1");
+        console.log(ele2);
+        console.log(ele2.attributes[0]);
+
+        //created class
+        ele2.setAttribute("class","myclass");
+        //or mostly preffered
+        // ele2.className = "newclass";
+
+        //removeAttribute
+        //removes the attributes form the element
+
+        //class is removed
+        ele2.removeAttribute('class');
+
+        //hasAttributes
+        //tells there is attribute or not throught Boolean form
+        console.log(ele2.hasAttribute('class'));
+
+        //HTML-DOM Mapping
+        //the attributes of element is mapped with DOM property so we can do access the attributes of elements
+        //there are some properties that is similar to DOM and HTML property so 
+        //DOM changed them to their own properties like 
+        //class - lassName
+        //fontSize - font-size
+        //maily HTML property changed by CamelCasng
+
+        //CSS-DOM Mapping
+        //We can modifly CSS Properites by applying between the CSS property and the DOM object. The mapping
+        //is direct between CSS property and DOM property:-
+        //1. single words are turned as it is
+        //2. when there is - then it changed into camelCaseing i.e. background-color = backgroundColor
+        //3. vendor prefix changed into camelCased
+
+    </script>
+</body>
+</html>

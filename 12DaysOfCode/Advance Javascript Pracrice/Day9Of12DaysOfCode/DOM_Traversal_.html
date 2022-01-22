@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" id="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM_Traversal</title>
+</head>
+<body>
+    <h1 id="myid">
+        <p>hello</p>
+        Hello world
+        <!-- I am comment -->
+    </h1>
+    <p class="myid1">I am hello</p>
+    <script>
+        //Note: - IF THERE IS ELEMENT PRESENT IN PARENT, CHILD, SIBLING, LASTCHILD, PREVIOUSSIBLING,
+        //NEXTSIBLING ALL THESE WILL RETURN ONLY THE ELEMENTS OF THE NDOE LIST BUT IT WILL IGNORE 
+        //WHITESPACES, TEXT, TAB, ENTER 
+        //ON THE OTHER HAND IF THERE IS NODE PRESENT THEN IT WILL RETURN ALL THE NODE LSIT PROPERTY INCLUDING
+        //TAB, WHITESPACES, ENTER, TEXT AND OTHER STUFFS
+
+        //Parent Node and Parent Element
+        //both function are same
+        //ParentNode return the parent of the node element 
+        //ParentElement returns the parent of the element if there is no element it will return null
+        var par_ele = document.getElementById("id"); //parentElement
+        document.write(par_ele.parentElement);      // it will return null
+        console.log(par_ele.parentElement);      // it will return null
+
+        var par_node = document.getElementById("myid");
+        document.write(par_node.parentNode);
+        console.log(par_node.parentNode);
+
+        //childNodes and children
+        //childNodes returns the child nodes of the elements including whitespaces, enter, tab ,text
+        //children returns only the element of the nodes and doesn't return other stuffs like childNodes
+        //they both are stored in the collection of value
+        var ch_nd = document.getElementById("myid");
+        document.write(ch_nd.childNodes);
+        console.log(ch_nd.childNodes);  //returns all the nodes list of children in the element
+
+        var ch = document.getElementById("myid");
+        document.write(ch.children);
+        console.log(ch.children);   //returns only the element prensnt under the element node
+
+        //firstChild and firstElementChild
+        //firstChild returnt the first element of the node if there is no child it will retrn null
+        //ii will include text ,tab, space, enter
+        //firstElementChild returns  only the element of the first node child but ie will ignore tab, space,
+        //enter, other suffs.
+        var fi_ch = document.getElementById("myid");
+        document.write(fi_ch.firstChild);
+        console.log(fi_ch.firstChild);
+
+        var fi_ele = document.getElementById("myid");
+        document.write(fi_ele.firstElementChild);
+        console.log(fi_ele.firstElementChild);
+        
+
+        // all these it will preform the same function told in the top i.e. NOTE (line: 17)
+
+    </script>
+</body>
+</html>

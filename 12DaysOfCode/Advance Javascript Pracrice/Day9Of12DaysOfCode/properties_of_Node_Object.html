@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties of Node Object</title>
+</head>
+<body>
+    <h1 id="myid">We are learning Js <!-- This is comment -->
+    </h1>
+    <p id="myid1">I am paragraph</p>
+    <div id="parent">
+        <p>hi</p>
+    </div>
+    <script>
+        //Propeties of Node Objects
+        //Node object represent a single node in the document tree
+
+        //Node is in the top
+        //then it gets devided into 3 first Document second Element third CharacterData
+        //Document get devided into HTML Document
+        //Element get devided into HTML Elements
+        //HTML Elements get devided into HTMLHeadElement , HTMLBodyElement, HTMLTitleElement, HTMLParagraphElement
+
+        //Properties:-
+        // 1. nodeName
+        // 2. nodeValue
+        // 3. nodeType
+        // 4. textContent
+        // 5. parentNode
+        // 6. childNode
+        // 7. firstNode
+        // 8. lastNode
+        // 9. previousSibling
+        // 10.nextSibling
+
+        //nodeName:-
+        //it is read-only property which retruns the name of the node as a string
+        document.write("==================Document====================<br>");
+        document.write(document.nodeName+"<br>");
+        document.write(document.nodeType+"<br>");
+        document.write(document.nodeValue);
+        console.log(document.nodeName );
+        console.log(document.nodeValue );
+        console.log(document.nodeType );
+
+        document.write("<br>==================Element====================<br>");
+        //to get access of element we can use getElementById
+        var element = document.getElementById("myid");
+        document.write(element.nodeName+"<br>");
+        document.write(element.nodeType+"<br>");
+        document.write(element.nodeValue);
+        console.log(element.nodeName );
+        console.log(element.nodeValue );
+        console.log(element.nodeType );
+        
+        document.write("<br>==================Text====================<br>");
+        //we need to get inside the element and access the firstChild i.e. text
+        var text = document.getElementById("myid");
+        document.write(text.firstChild.nodeName+"<br>");
+        document.write(text.firstChild.nodeType+"<br>");
+        document.write(text.firstChild.nodeValue);
+        console.log(text.firstChild.nodeName );
+        console.log(text.firstChild.nodeValue );
+        console.log(text.firstChild.nodeType );
+        //to change the value
+        var text = document.getElementById("myid").firstChild.nodeValue = "Yo man";
+        document.write("<br>"+text);
+
+        document.write("<br>==================Comment====================<br>");
+        //we need to get inside the element and access the firstChild i.e. text
+        var text = document.getElementById("myid");
+        document.write(text.firstChild.nextSibling.nodeName+"<br>");
+        document.write(text.firstChild.nextSibling.nodeType+"<br>");
+        document.write(text.firstChild.nextSibling.nodeValue);
+        console.log(text.firstChild.nextSibling.nodeName );
+        console.log(text.firstChild.nextSibling.nodeValue );
+        console.log(text.firstChild.nextSibling.nodeType );
+
+        //childNode 
+        var parent = document.getElementById("parent").innerText;
+        console.log(parent);
+    </script>
+</body>
+</html> 

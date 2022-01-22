@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>remove Node</title>
+</head>
+<body>
+    <div id="mytxt">
+        <h1> 1</h1>
+        <h2 id="myh"> 2</h2>
+        <h3> 3</h3>
+    </div>
+
+    <script>
+        //remove node
+        //removing of node can be done using several ways
+        //using removeNode, using parent and child
+        //but the romoved itme does't fully it get rmoved form DOM.
+        //it still there in the memeory
+
+        var par = document.getElementById("mytxt");
+        var ch = document.getElementById("myh");
+
+        //syntax -> parent.removeChild(child);
+        par.removeChild(ch);//or
+        //var del = par.removeChild(par.firstChild);
+
+        //replace node
+
+        //syntax
+        //var replaceNode = parentNode.replace(newChild,oldChild);
+        
+    </script>
+</body>
+</html>

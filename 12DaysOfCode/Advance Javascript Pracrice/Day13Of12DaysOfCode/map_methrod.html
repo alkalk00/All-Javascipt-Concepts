@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Methord</title>
+</head>
+<body>
+    <script>
+        //Map methord
+        //it more like loop which goes through every items
+        //it contains 3 parameters first value, second index 
+
+        var arr = [22,33,44,55,66];
+        var arr_map = arr.map((value,i)=>{
+            //by increasing the items in each items it will not effect the main array
+            value++;
+            console.log(value);
+            //tells the index of the array
+            console.log(i);
+        })
+        console.log(arr);
+
+
+    </script>
+</body>
+</html>

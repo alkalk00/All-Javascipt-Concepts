@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+</head>
+<body>
+    <script>
+        //Cookies
+        //its a samall piece of data stored in web server that resided on the client't machine. Once it's been set,
+        //the client automatically return the cookies to the web server with each request that it makes. the allows
+        //server to place value it wishes to 'rememeber' in the cookie, and have access to them when creating respond
+
+        //types of cookies:-
+        //sesson cookies which is for limited time i.e. till the browser open after close browser the 
+        //cookies get destoryed
+
+        //peristent cookie remains the date get expired it has mainly max-age
+
+        //create cookies
+        var cookie = document.cookie = "name = 'souvik'";
+        console.log(cookie);
+
+        //create expires date cookie i.e. persistent cookie
+        document.cookie = "username = sovuik; expires= Mon, 3-Sep-2021 08:00:00 UTC"
+        alert(document.cookie);
+    </script>
+</body>
+</html>

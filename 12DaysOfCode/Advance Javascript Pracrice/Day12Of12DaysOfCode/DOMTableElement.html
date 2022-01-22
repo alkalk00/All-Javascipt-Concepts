@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Table Element</title>
+</head>
+<body>
+    <table id="mytab" border="2">
+        <caption>Table Caption</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Roll</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Souvik</td>
+                <td>233</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>Deep</td>
+                <td>543</td>
+                <td>33</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>Souvik</td>
+                <td>233</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>Deep</td>
+                <td>543</td>
+                <td>33</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Raju</td>
+                <td>222</td>
+                <td>23</td>
+            </tr>
+        </tfoot>
+    </table>
+    
+
+    <script>
+        //DOMTableElement
+        //we can create table using javascript and manipulate it
+        //Properties:-                //Methords:-
+
+        //caption                     //createCaption()
+        //tHead                       //deleteCaption()
+        //tFoot                       //createTHead()
+        //tFoot                       //deleteTHead()
+        //rows                        //createTFoot()
+        //tBodies                     //deleteTFoot()
+                                      //createrow()
+                                      //deleterow()
+                                      
+//using innerHTML we can give new value to the element node of the table we want to change
+                                      
+        //capiton
+        var tab = document.getElementById("mytab");
+        // console.log(tab.innerHTML);
+        var tab_cap = tab.caption;
+        //change caption
+        document.write(tab_cap.innerHTML="my cap"+"<br>")
+
+        //chage tHead
+        var tab_head = tab.tHead;
+        // console.log(tab_head.innerHTML="<tr><th>Student</th><th>Index</th><th>Roll</th></tr>");        
+
+        //tbodies
+        //retruns a collection of node listed items
+        //we can also view it using index number
+        var tab_body = tab.tBodies
+        console.log(tab_body);
+
+        //methods
+
+        //createCaption and deleteCaption => (creates and deletes)
+        //if caption is not there we can create and delete throught javascript
+        var tab_cap_cre = tab.createCaption()
+        console.log(tab_cap_cre.innerHTML="hello caption");
+
+        tab.deleteCaption();
+        
+        //createTHead() & deleteTHead()
+        var tab_thead = tab.createTHead();
+        console.log(tab_head.innerHTML="<tr><th>Student</th><th>Index</th><th>Roll</th></tr>");
+        var del_thead = tab.deleteTHead();
+
+        //createTFoot & deleteTFoot()
+        var tab_tfoot = tab.createTFoot();
+        console.log(tab_tfoot.innerHTML="<tr><th>Student</th><th>Index</th><th>Roll</th></tr>");
+        var del_foot = tab.deleteTFoot();
+
+        //insertRow() & deleteRow()
+        var row = tab.insertRow();
+        console.log(row.innerHTML="<td>Student</td><td>Index</td><td>Roll</td>");
+    </script>
+</body>
+</html>

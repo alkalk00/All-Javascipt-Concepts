@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modyfing Text node</title>
+</head>
+<body>
+    <h2 id="myh2">Helllo souvik</h2>
+
+    <script>
+        //lenght property of modyfing text node
+        var main_h2 = document.getElementById("myh2");
+        console.log(main_h2.firstChild.length);
+        document.write("Lenght: "+main_h2.firstChild.length);
+
+        //to acces data of text node
+        console.log(main_h2.firstChild.data);
+        //set data
+        var set_data = main_h2.firstChild.data = 'I am groot';
+        document.write("<br>"+set_data);
+
+        //append data
+        //when the data get append it does't create a new node it stays within the same node
+        var apnd = main_h2.firstChild.appendData(" hello world");
+        console.log(main_h2.firstChild);
+
+        //delete data
+        //it will delete up to 1 less to last parater passed in metord
+        main_h2.firstChild.deleteData(0,4);
+        console.log(main_h2.firstChild);
+
+        //insert data
+        //main_h2.firstChild("index_no","sting_value")
+        main_h2.firstChild.insertData(2," sting_value ");
+        console.log(main_h2.firstChild);
+
+        //replace Data
+        //textNode.replaceData(start,lenght,string);
+        main_h2.firstChild.replaceData(0,3,' hello ');
+        console.log(main_h2.firstChild);
+
+        //split TextNode
+        //it split text into 2 parts one that up to the range and another sets as original
+        //it creates 2 text nodes
+        main_h2.firstChild.splitText(3);
+        console.log(main_h2.firstChild);
+        console.log(main_h2.childNodes);
+
+        //sbustring Data
+        //it retrives the specific lenght of the string told in the methord
+        main_h2.firstChild.substringData(0,7);
+        console.log(main_h2.firstChild);
+
+
+    </script>
+</body>
+</html>

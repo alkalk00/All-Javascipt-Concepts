@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Before</title>
+</head>
+<body>
+    <h1>Names</h1>
+    <div>
+        <ul id="myid">
+            <li>Souvik</li>
+            <li id="myli">Deep</li>
+            <li>Vanik</li>
+            <li id="ex_ele">Raju</li>
+        </ul>
+    </div>
+    <script>
+        //insertBefore
+        //by this methord we can add any data using parent and refenrence node.
+        //parent node helps to specify where should be added
+        //referrence node helps to add before it
+        //if there is no referene node or null then the data will be added at last
+
+        var parentNode = document.getElementById("myid");
+        //create element
+        var new_ele = document.createElement("li");
+        new_ele.textContent='hello';
+        
+        var refNode = document.getElementById("myli");
+
+        //insert data by insertBefore menthord
+        parentNode.insertBefore(new_ele,refNode);
+
+        console.log(parentNode);
+
+        //move existed element
+        var exit_ele = document.getElementById("ex_ele");
+        parentNode.insertBefore(exit_ele,refNode);
+        console.log(parentNode);
+
+    </script>
+</body>
+</html>

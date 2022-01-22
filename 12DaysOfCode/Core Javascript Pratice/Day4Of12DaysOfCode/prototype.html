@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+    <style>
+        *{
+            font-size: 2rem;
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var Objects = function(parameter){
+            //Instance members
+            this.key1 = parameter;
+            this.key2 = " Hello world";
+        }
+        var new_Object = new Objects('Souvik');
+        var new_Object2 = new Objects('Deep');
+        //when we need to create new key for several objects then we need to create keys for every objects those
+        //are defined but there is a way we can create key for all the objects.
+        //Prototype is the way where we can define it and can access it to all the objects that are declared
+        //under the main class.
+        //Prototype member
+        Objects.prototype.new_key = ' New Key ';
+        //this key and value is assicable to all the objects which is definded under Object class
+        document.write(new_Object2.new_key);
+
+        //this methord is used when a property is added at the last moment or developer forget to add and
+        //suddenly need to add to a specific class not to all the classes
+        //for adding to all the class we need prototype 
+        //mainly we use prototype for methords not keys or values
+        new_Object.color = 'green';
+        document.write(new_Object.key2);
+        console.log(new_Object2);
+        //in javascrpt the engine find the property form bottom to top
+        //it find where the property is declared it can be in class's object or class or base class or object
+        //the direction is like Object of class - Class - Base Class - Object
+        //the base class is inherited from Object on top of all
+        //Object is in the top and from it all things are inhirited
+
+        //to acces the properties
+        document.write("<br>"+Object.keys(new_Object));
+        //we can't see the prototype member to see it we need for in loop
+        for(var check in new_Object){
+            document.write("<br>"+check+": "+new_Object[check]);
+        }
+    </script>
+</body>
+</html>

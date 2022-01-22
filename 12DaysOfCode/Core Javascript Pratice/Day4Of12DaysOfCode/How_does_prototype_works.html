@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How_does_prototype_works</title>
+</head>
+<body>
+    <h1>How does prototype work in javascrpt</h1><br>
+    <h2>when we create a function in javascrpt behind the sences a function object and a objects are created:-</h2>
+    <h2>1. Function object which has a property called protorype</h2>
+    <h2>2. Object.Prototype is created from function</h2>
+    <h2>function Mobile(){} -> Mobile Function and Moile.Prototype are the objects of function</h2><br>
+    <h2>when we create a object using this function we get:-</h2>
+    <h2>1. Object which has an property named __proto__</h2>
+    <h2>This object is associated to Prototype and __proto__ links to protorype</h2><br>
+    <h2>We can access Prototype by Mobile.prototype and __proto__ form Mobile function and Object created by Mobile function</h2>
+    <img src="./prototype_working.jpeg" alt="working of prototype" width="600px">
+    <h2>So if we declar a variable in mobile i.e.</h2>
+    <h2 style="background: rgb(219, 209, 209); width: 420px; padding-top: .2rem; color: red; line-height: 1.4;"><pre>    function Mobile(){
+        this.a = 10;
+    }
+    var New_object = new Mobile();
+    </pre></h2>
+    <h2>then the javascrpt engine will find the variable form Object created by the New_object to Prototype and it will find it in Object so no need to go to Prototype</h2>
+    <h2>What if i.e. <pre style="background: rgb(219, 209, 209);color: red; width: 280px;">Mobile.prototype.a = 10;</pre>create a prototype protperty and in function a is not declared then engine will start finding the value form Object to Null and it find it in Prototype</h2>
+    <h2>Then it shows that wheneven a property is declared javascrpt engine will find it form bottom to top and it finds until it gets the property</h2>
+    <h3><pre style="background: rgb(219, 209, 209);color: red; width: 780px; padding: 1rem; line-height: 2;">
+        function Constructor(){
+            this.a = 10;
+        }
+        var new_Object = new Constructor();
+        console.log(Constructor); // full function
+        console.log(new_Object);  // defines the constructo and value
+        console.log(Constructor.prototype); // defines prototype of Constructor 
+        console.log(new_Object.__proto__);  // defines prototype of new_Object 
+        //both links to the same i.e. Prototype
+        console.log(Constructor.prototype === new_Object.__proto__); //true
+        console.log(Constructor === new_Object.__proto__.constructor); //true
+        console.log(Constructor === Constructor.prototype.constructor); //true
+    </pre></h3>
+    <br><br>
+    <script>
+        function Constructor(){
+            this.a = 10;
+        }
+        var new_Object = new Constructor();
+        console.log(Constructor); // full function
+        console.log(new_Object);  // defines the constructo and value
+        console.log(Constructor.prototype); // defines prototype of Constructor 
+        console.log(new_Object.__proto__);  // defines prototype of new_Object 
+        //both links to the same i.e. Prototype
+        console.log(Constructor.prototype === new_Object.__proto__); //true
+        console.log(Constructor === new_Object.__proto__.constructor); //true
+        console.log(Constructor === Constructor.prototype.constructor); //true
+    </script>
+</body>
+</html>

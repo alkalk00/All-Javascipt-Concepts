@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Handling</title>
+</head>
+<body>
+    <form action="" name="myform">
+        Username: <input type="text" name="username__"><br>
+        Password: <input type="password" name="password__" id="">
+    </form>
+    <script>
+        //Form Handling
+        //the HTML document get access by javascript through the form object known as HTMLFormElement in the DOM.
+        //when the child of Document Object
+
+        //methords:-
+        //checkValidity
+        //reset
+        //submit
+
+        //event:-
+        //onreset
+        //onsubmit
+
+        //Accessing Form
+        //1. throught index no -> if there are multiple form then we can view it through index no.
+        //2. by name_attribute_value we can access it
+        //3. by dot 
+        //4. by getElementById we can access the form
+        
+        //Form Validaton
+        function check_form(){
+            var regix = /^([^0-9\W])$/;
+            //we can acces form by dcoument.form_naem.element_name;
+            if(regix.test(document.myform.username_.value)){
+                document.myform.username_.style.backgroundColor = 'red';
+            }else{
+                document.myform.username_.style.backgroundColor = 'blue';
+            }
+        }
+        form_document.myform.username_.addEventListener                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ("keyup",check_form);
+    </script>
+</body>
+</html>

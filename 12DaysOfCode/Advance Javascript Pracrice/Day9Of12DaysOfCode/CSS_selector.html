@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+</head>
+<body>
+    <div class="css_sec">
+        <h1 id="css_sec">Hi</h1>
+        <a href="#">Yo</a>
+    </div>
+    <h1>We are learning JS</h1>
+    <h1 class="geek myclass">Advance Javascript</h1>
+    <h2>Now</h2>
+    <p class="geek">Hello <span>Souvik</span></p>
+    <em>world <span>hello</span></em>
+    <div id="show">
+        <p>list of p</p>
+        <p class="geek">2nd p inside div</p>
+    </div>
+    <p class="show1">I am paragraph</p>
+    <div id="show2">I am something div</div>
+
+    <script>
+        //querySelector()
+        //it select the first tag which get matched if there is no match then it return null
+        //mainly it follows first come first get
+
+        //Element Selector
+        var a = document.querySelector('h1');
+        console.log(a);
+
+        //Class Selector
+        var b = document.querySelector(".css_sec");
+        console.log(b);
+
+        //id Selector
+        var c = document.querySelector("#css_sec");
+        console.log(c);
+
+        //attribute selector    return null
+        var d = document.querySelector("div[id='css_sec']");
+        console.log(d);
+
+        //querySelectorAll()
+        //it returns all the nodelist representing a list of the dcoument's element that match the specified group of selector
+        //NodeList Represent a collection of nodes, The nodes can be accessed through index number, start form index 0
+        //looping through all elements can be used to match specific selectors
+        //if the specific selector include a CSS pesudo-element, the return list is always empty
+        //it counts form the top and see all the elements
+
+        var aa = document.querySelectorAll("p,h1");
+        console.log(aa);
+
+        var bb = document.querySelectorAll("#show2");
+        console.log(bb);
+
+        //attribute selector    return null
+        var dd = document.querySelectorAll("div[id='show2']");
+        console.log(d);
+    </script>
+</body>
+</html>

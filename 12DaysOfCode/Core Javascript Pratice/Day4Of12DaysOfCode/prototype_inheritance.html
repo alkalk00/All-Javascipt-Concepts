@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype Inheritance</title>
+    <style>
+        *{
+            font-size: 2rem;
+        }
+        h2{
+            font-size: large;
+        }
+        hr{
+            width: 50%;
+        }
+        pre{
+            font-size: medium;
+            background: #000;
+            padding: 1rem;
+            width: 40%;
+            color: #fff;
+            border-radius: 20px;
+        }
+        .images{
+            display: flex;
+            align-items: center;
+            justify-content: space-around   ;
+        }
+        p{
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inheritance Prototype In javascrpt</h1>
+    <h2>In Jvascript Inheritance can be only possible by prototype</h2>
+
+    <h2>When we create a fucntion name Mobile then in behind 2 objects are created:-</h2>
+    <h2>1. Mobile function with property of prototype 2. Prototype with protperty of __proto__</h2>
+    <h2>And with that function when we create object i.e. var m = new Mobile() then:-</h2>
+    <h2>1. m Object is created with __proto__ as protperty</h2>
+    <h2>This 2 objects goes to object.prototye and object.prototype goes to Null</h2>
+    <h2>Null is top of all</h2><hr>
+    <h2>Again in same way when we create another function named Samgsung and it also create a object same like the upper one</h2>
+    <h2>These 2 objects are likned up with object.prototye and object.prototype is linked up with null</h2>
+    <h2>If we want to declar a prototype member in Mobile and want to access it into Samgsung it's not possible</h2>
+    <h2>Because these are two different constructor</h2>
+    <h2>If we want to access a instance member of Mobile constructor to Samgsung Constructor it is possible but prototype Inheritance is not possible</h2>
+    <h2>In this case only Prototype Inheritance can be possible</h2>
+    <h2>Note: we can go downward or back to Sangsung i.e. Mobile can't access the Sangsung constructor.The flow is always upward</h2>
+    <div class="images">
+        <img src="./prototype_chain.jpeg" alt="" width="600px"><p>======></p>
+        <img src="./prototype_link_to_super_class.jpeg" alt="" width="600px">
+    </div>
+    <h2 id="Mobile_prop"></h2>
+    <h2 id="samgsung_prop"></h2>
+    <pre>
+        function Mobile(){
+            //instance memeber
+            this.a = 10;
+        }
+        var m = new Mobile();
+
+        //prototype member of Mobile
+        Mobile.prototype.z = 30;
+
+        //prototype memeber inheritance
+        Samgsung.prototype = Object.create(Mobile.prototype);
+        Samgsung.prototype.constructor = Samgsung;
+
+
+        function Samgsung(){
+            //instance memeber
+            this.b = 20;
+            Mobile.call(this);
+        }
+        var s = new Samgsung();
+
+        //access instance member
+        var mobile_prop = s.b;    //own property
+        var x = document.getElementById("Mobile_prop");
+        x=mobile_prop;
+        document.write(" Sangsung property: "+x+"<br>");       //own property
+        document.write("Mobile Instance member: "+s.a+"<br>");    //Mobile property
+        
+        //prototype inheritance
+        var y = document.getElementById("samgsung_prop");
+        var samgsung_prop = s.z;
+        y=samgsung_prop;
+        document.write("Mobile Prototype member: "+y);
+    </pre>
+    <script>
+        function Mobile(){
+            //instance memeber
+            this.a = 10;
+        }
+        var m = new Mobile();
+
+        //prototype member of Mobile
+        Mobile.prototype.z = 30;
+
+        //prototype memeber inheritance
+        Samgsung.prototype = Object.create(Mobile.prototype);
+        Samgsung.prototype.constructor = Samgsung;
+
+
+        function Samgsung(){
+            //instance memeber
+            this.b = 20;
+            Mobile.call(this);
+        }
+        var s = new Samgsung();
+
+        //access instance member
+        var mobile_prop = s.b;    //own property
+        var x = document.getElementById("Mobile_prop");
+        x=mobile_prop;
+        document.write(" Sangsung property: "+x+"<br>");       //own property
+        document.write("Mobile Instance member: "+s.a+"<br>");    //Mobile property
+        
+        //prototype inheritance
+        var y = document.getElementById("samgsung_prop");
+        var samgsung_prop = s.z;
+        y=samgsung_prop;
+        document.write("Mobile Prototype member: "+y);
+    </script>
+</body>
+</html>

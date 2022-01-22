@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subper and Subclass in protorype</title>
+    <style>
+        *{
+            font-size: 2rem;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function Sport(){
+            
+        }
+        //we can't use arrow function in prototype's property to declar a prototype
+        Sport.prototype.new_key = function(){
+            return this.model;
+        };
+        
+        //SubClass
+        function Cricket(model,price){
+            this.model = model;
+            this.price =price;
+        }
+
+        //Subclass
+        function Football(model){
+            this.model = model;
+        }
+
+        //to access prototype protperty of Sport it need to inheirtie to Criket and Football
+        //that can be done by only Prototype Inheritance
+        //Cricket creats Inheitatence the property
+        
+        //we can also make a functon rather then writting again and again
+        function extending(child,parent){
+            child.prototype = Object.create(parent.prototype);
+            child.prototype.constructor = child;
+        }
+
+        extending(Cricket,Sport);
+
+        //child.prototype = object.create(parent.prototype
+
+        // Cricket.prototype = Object.create(Sport.prototype);
+        // Cricket.prototype.constructor = Cricket;
+
+        //Football creats Inheitatece the property
+        Football.prototype = Object.create(Sport.prototype);
+        Football.prototype.constructor = Football;
+
+        //new object created for cricket
+        var c = new Cricket('NIKE ',32000);
+
+        //new object created for football
+        var f = new Football('PUMA ');
+
+        //cricket can access the property of criket throght inheritance
+        document.write(c.price+" "+c.new_key());
+        document.write(f.new_key());
+    </script>
+</body>
+</html>

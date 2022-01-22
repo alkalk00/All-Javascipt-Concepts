@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <style>
+        button{
+            width: 200px;
+            height: 30px;
+            font-size: 1rem;
+        }
+
+        #div_1{
+            background-color: green;
+            width: 400px;
+            height: 400px;
+        }
+        #div_2{
+            background-color: blue;
+            width: 300px;
+            height: 300px;
+        }
+        #div_3{
+            background-color: orange;
+            width: 200px;
+            height: 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- using inline  -->
+    <!-- <button onclick="document.write('hello');">Click Me</button> -->
+
+    <!-- using by Javascript function -->
+    <h1 onclick="clicked();">Hello world</h1>
+
+    <!-- Javascript -->
+    <button id="id">Clicked</button>
+
+    <!-- addEventListener -->
+    <h1 id="hid">Hello HI ID</h1>
+
+    <!-- EventOBject -->
+    <button id="id_btn">Hello motto</button>
+
+    <!-- EventMethord -->
+    <div id="div_1">1
+        <div id="div_2" class="_2">2
+            <div id="div_3">3
+
+            </div>
+        </div>
+    </div>
+
+    <!-- NewWindow -->
+    <button id="new_btn">New Window</button>
+
+
+    <script>
+
+        //Event
+        //The action to which Javascript can respond are called Events.
+        //An Event is some notable action to whihc a script can respond.
+
+        //EventHandler
+        //it is a set of code which is associated with the pirticular part of the document and pirticular event. A
+        //handeler is executed if when the given event occus at the part of the dcoument
+        //mainly the piece of code that exicute the event
+
+        //Event Handling with HTML Attributes
+        //these buinding are element attributes, such as onclick and onchange, which can be set equal to Javascrpt
+        //that is to be executed when the given event occurs at the object
+        function clicked(){
+            alert('hi');
+        }
+
+        //Event Binding with javascript
+        //we can add and remove the remote handles dynamically as weell as it imporoves the seperation
+        //creating event by javascript and call it by itself
+        var btn = document.getElementById("id");
+        btn.onclick= function cick(){
+            console.log('hi');
+        };
+        
+        //addEventListener()
+        //this was introduced DOM2
+        //object.addEventListiner(event,handler,capturePhase);
+        //why to use:-
+        //1. multiple bind handlers with single object
+        //2. it enables finer-grained control of the phase when the listener is active
+        //3. it works on DOM element, not just HTML element
+
+        var obj = document.getElementById("hid");
+        obj.addEventListener("click",click_on,false);
+        
+        function click_on(){
+            document.write("Clicked again");
+        }
+
+        //DOM Event FLow/Event Progragation
+        //phase:-
+        //1.capture phase   -> execute form top to bottom   -> true
+        //2.target phase
+        //3.bubbling phase  -> execute form bottom to top   -> false
+
+        //EventOBject -> (e)
+        //DOM events pass an Event object as an argument to handle
+        //throguht the arguments it tells the properties of the event that is given
+        var en_btn = document.getElementById("id_btn").addEventListener("click",function(e){
+            console.log(e);
+        });
+
+        //target vs current target
+        //target tells the where the event is initilized form
+        //current target tell on which part it is now initilized 
+
+        // EventObject
+        function div1(e){
+            this.style.background='red';
+            //stop the listiner to call the event
+            e.stopImmediatePropagation();
+        };
+        function div2(e){    
+            this.style.background='orange';
+        };
+        function div2_(e){    
+            this.style.width="250px";
+            //to stop the flow of further current event in the capturing and bubbling phase
+            e.stopPropagation();
+        };
+        function div3(e){    
+            this.style.background='yellow';
+        };
+
+        var div_1 = document.getElementById("div_1");
+        var div_2 = document.getElementById("div_2");
+        var div_3 = document.getElementById("div_3");
+
+        div_1.addEventListener("click",div1,false);
+        div_2.addEventListener("click",div2,false);
+        div_2.addEventListener("click",div2_,false);
+        div_3.addEventListener("click",div3,false);
+
+        //preventDefault()
+        //this event interface's methord tell the user agent that if the event does not get explicitly handled,
+        //its default action should not be taken it would be 
+        //to prevent default behaviour
+
+        //MouseEvent
+        //1. mousedown
+        //2. mouseup
+        //3. click
+        //4. dbclick
+        //5. mousecenter
+        //6. mouseleave
+        //7. mouseover
+        //8. mouseout
+        //9. mousemove
+        //10. contextmenu
+
+        //Focus Event
+        //1. focus
+        //2. blur
+        //3. focusin    -> when the element is about to gain focus
+        //4. focusout   -> just focus and before the blur event
+
+        //Key Event
+        //1. keydown
+        //2. keyup
+
+        //dialog box in windows objects
+        //1. alert() -> it used only when you want to stop everyting and let the user know something
+        //2. confirm()  -> message display for a user to respond by pressing either OK button to agree
+        //with the message to a cancel button to disagree with the message. enter - true || cancel - false
+        //3. prompt()   -> it takes input form the user and return it if user press cancel button then it
+        //return null
+
+        //open() and close()
+        //these methords creats new windows
+        //syntax of open()
+        // var newWin = window.open("URL","_self","height=100","width=100");
+
+        function newwin(){
+            //it will open on same window with next tab
+            // _self - same window
+            //_blank - new window
+            window.open("http://wwww.google.com","_self");
+        }
+        var new_btn = document.getElementById("new_btn");
+        new_btn.addEventListener("click",newwin)
+
+        //to print a page 
+        //window.print()
+
+        //windows event
+        //these methords are associate with the windows objects
+        //onload, alert ,etc
+
+        
+    </script>
+</body>
+</html>

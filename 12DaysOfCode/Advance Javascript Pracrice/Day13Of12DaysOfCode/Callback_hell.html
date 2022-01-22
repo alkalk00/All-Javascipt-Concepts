@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <title>Promices Synchronous Await</title>
+    <script>
+        //Synchronous
+        //executes one after other i.e. waits for each to execute one after another
+        function func(){
+            console.log("function");
+        }
+        console.log('start');
+        func();
+        console.log('finish');
+
+        //Asychronous
+        //does't wait for other function to execute
+        console.log("first");
+        setTimeout(() => {
+            // console.log('hello');
+        }, 1000);
+        console.log('last');
+
+        //callback can be used in both sync and async
+        //callback as synchronous
+        console.log('one');
+        var arr = [1,2,3,4,5,6];
+        //callback used as synchronous
+        arr.forEach(r => console.log(r));
+        console.log('last');
+
+        //callback hell
+        console.log('prothom');
+
+        function fun_1(name,callback){
+            setTimeout(() => {
+                console.log('inside func');
+                //the name get undefined caused it will get no value for 2s and assign the value to name but the
+                //but the return get exetuced so there no value in it that why it return undefined
+                //to avoid it callbacks are used
+                callback(name);
+            }, 2000);
+        }
+        //another function which have some featues of fucn_1 and this funciton depend upon the name of the 
+        // fucn_1
+        function func_1_fec(name,callback) {
+            setTimeout(() => {
+                console.log('features of func_1');
+                callback(['criket','football','hockey']);
+            }, 1000);
+        }
+        const nm = fun_1('Deep',(nm)=>{console.log(nm);
+            //callback hell
+            func_1_fec(nm,(hob)=>{
+                console.log(hob);
+            })
+        })
+        // console.log('souvik');
+        console.log('sesh');    
+        
+        function call_func(name,callback) {
+            setTimeout(() => {
+                console.log('First fucntion');
+                callback(name);
+            }, 4000);
+        }
+        
+        const data = call_func('Souvik',(data)=>{
+            console.log(data);
+        })
+    </script>
+</body>
+</html>
